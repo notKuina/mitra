@@ -158,6 +158,176 @@ h3{
 
 
 
+  .profile {
+   position: relative;
+  }
+
+  .profile_picture{
+    position: absolute;
+    width: 0.1px;
+    height:0.1px;
+   opacity: 0;
+    overflow:hidden;
+    z-index: -1;
+    border:2px solid #fff;
+    box-shadow:0 0 5px rgba(0,0,0,0.3);
+  }
 
 
+  .upload-label {
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
 
+.upload-label:hover {
+    background-color: #0056b3;
+}
+
+.filename {
+    margin-top: 10px;
+    display: block;
+}
+
+
+.navbar{
+    height: 60px;
+    width: 100%;
+    color: rgb(160, 154, 228);
+    float: inline-start;
+    box-shadow: 0, 0.3, 0,0.3;
+
+}
+.container{
+    min-height: 100vh;
+    background-color:var(--light-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.container .profile{
+    padding:20px;
+    background-color:var(--white);
+    box-shadow:var(--box-shadow);
+    text-align:center;
+    width:400px;
+    border-radius:5px;
+
+}
+
+.container .profile{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.container .profile img{
+    height: 150px;
+    width:150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.container .profile h3{
+    margin:5px 0;
+    font-size: 20px;
+    color: var(--orange);
+}
+.container .profile p{
+    margin-top: 20px;
+    color:var(--black);
+    font-size: 17px;
+}
+.container .profile p a{
+    color: var(--red);
+}
+
+.container .profile p a hover{
+    text-decoration: underline;
+
+}
+
+update_profile{
+    min-height: 100vh;
+    background-color:var(--light-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.update-profile form{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.update-profile form img{
+    height:200px;
+    width: 200px;
+    border-radius:50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.update-profile form .flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.update-profile form .flex .inputBox{
+    width:49%;
+}
+
+.update-profile form .flex .inputBox span{
+    text-align: left;
+    display: block;
+    margin-top: 15px;
+    font-size: 17px;
+    color: var(--black);
+}
+
+.update-profile form .flex .inputBox .box{
+    width: 100%;
+    border-radius: 5px;
+    background-color:  var(--light-bg);
+    padding: 12px 14px;
+    font-size: var(--black);
+    margin-top: 10px;
+}
+
+@media (max-width:650px){
+.update-profile form .flex{
+    flex-wrap: wrap;
+    gap:0;
+}
+}
+.update-profile form .flex .inputBox{
+    width: 100%;
+}
+
+
+ 
+.follow-button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f2961b;
+    color:black;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .follow-button:hover {
+    background-color: transparent;
+    border:2px solid #f2961b;
+  }
