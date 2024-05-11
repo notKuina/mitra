@@ -23,7 +23,7 @@
 
 .upload button {
     width: 100px;
-    padding: 10px;
+    height: 40px;
     border: none;
     border-radius: 30px;
     background-color: #f2961b;
@@ -32,24 +32,26 @@
     cursor: pointer;
   }
   
+
+  
   .upload button:hover {
     background-color: transparent;
-    border:2px solid #f2961b;
+    border:1px solid orange;
   }
+  
 
   form{
  
         height: 200px;
         width: 500px;
         position: absolute;
-        margin-top: 150px;
-        
+        margin-top: 100px; 
          margin-left: 100px;
   }
   button{
        
         position: absolute;
-        margin-top: 80px;
+        margin-top: 30px;
          padding: auto;
          margin-left: 100px;
   }
@@ -62,10 +64,11 @@ input{
     border:  2px solid orange;
     border-radius: 5px;
     padding:5px;
+    margin-bottom: 30px;
   }
 
   .input:active {
-  box-shadow: 2px 2px 15px orange inset;
+  box-shadow: 2px 2px 15px orange ;
 }
 
 
@@ -80,13 +83,14 @@ input{
 
 
                 <form action="feedback.php" method="post" enctype="multipart/form-data">
+                    <input type="text" id="email" placeholder="Enter your email here..." style="color:black">
                    
-                    <input id="message" placeholder="Give your feedback here..." style="color:black"></input>
+                    <input id="message" placeholder="Give your feedback here..." style="color:black">
                  
                  
 
                     <div class="upload">
-                <button type="submit"onclick="sendMessage()" name="uploadfile">
+                <button type="submit" name="uploadfeedback">
                         submit
                 </button>
              </form>
@@ -96,16 +100,6 @@ input{
 
 
 
-<script>
-    // JavaScript function to handle form submission
-    function sendMessage() {
-        var message = document.getElementById('message').value;
-        // You can perform further actions with the message, like sending it to a server or displaying it
-        console.log("Message:", message);
-        // Optionally, clear the textarea after sending
-        document.getElementById('message').value = '';
-    }
-</script>
 
 </body>
 </html>
@@ -117,20 +111,25 @@ input{
 
 <?php
 require 'connection.php';
+
+$sql = "SELECT id, email, message FROM feedback";
+$result = $con->query($sql);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
    
-    $rating = $_POST["feedback"];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    $sql = "INSERT INTO feedback (email,rate) VALUES ('$email,$rating')";
-    if (mysqli_query($conn, $sql))
+    $sql = "INSERT INTO feedback (email,message) VALUES ('$email','$message')";
+    if ($con->query($sql) === TRUE)
     {
         echo "New feedback added successfully";
     }
     else
     {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
     }
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>
