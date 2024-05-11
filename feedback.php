@@ -17,7 +17,7 @@
         position: absolute;
         margin-left: 350px;
         border-radius: 5px;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
 
@@ -43,7 +43,7 @@
         width: 500px;
         position: absolute;
         margin-top: 150px;
-         padding: auto;
+        
          margin-left: 100px;
   }
   button{
@@ -53,41 +53,35 @@
          padding: auto;
          margin-left: 100px;
   }
-  input{
-    height: 30px;
-    width: 300px;
-    background-color: lightgray;
-    border: 0;
-    border-radius: 5px;
-    border:1px;
-    margin:10px;
-    padding:5px;
-  }
-textarea{
+
+input{
    
     height: 30px;
     width: 300px;
-    background-color: lightgray;
-    border: 0;
+    background-color: white;
+    border:  2px solid orange;
     border-radius: 5px;
-    border:1px;
-    margin:10px;
     padding:5px;
   }
+
+  .input:active {
+  box-shadow: 2px 2px 15px orange inset;
+}
 
 
 </style>
 </head>
 <body>
     <div class="feedback">
-    <div class="logo">
+    <div class="logo" style="padding:5px;">
            <a href="accountAfterLogin.php"> <img src="images/logo.png" ></a>
-           <span style="color:orange; font-size:24px; font-family:tohoma; margin-left:100px;  margin-top: 100px;">Feedback</span>
+           <p style="color:orange; font-size:26px; font-family:tohoma; margin-left:150px;  ">Feedback for MITRA</p>
+           <p style="color:black; font-size:14px; margin-left:130px;">Thank you for giving us feedback!</p>
 
 
                 <form action="feedback.php" method="post" enctype="multipart/form-data">
-                    <input type="email" class="email"  placeholder="Enter your email">
-                    <textarea id="message" placeholder="Type your feedback here..."></textarea>
+                   
+                    <input id="message" placeholder="Give your feedback here..." style="color:black"></input>
                  
                  
 
@@ -98,7 +92,8 @@ textarea{
              </form>
                     </div>
 
-  
+
+
 
 
 <script>
