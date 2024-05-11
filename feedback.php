@@ -1,3 +1,25 @@
+<?php
+require 'connection.php';
+
+
+if(isset($_POST['email']) && isset($_POST['message'])) {
+    // Both 'email' and 'message' keys are set in the $_POST array
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $sql = "INSERT INTO feedback (email,message) VALUES ('$email','$message')";
+
+    if ($con->query($sql) === TRUE)
+    {
+        echo "New feedback added successfully";
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+    }
+    mysqli_close($con);
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +104,7 @@ input{
            <p style="color:black; font-size:14px; margin-left:130px;">Thank you for giving us feedback!</p>
 
 
-                <form action="feedback.php" method="post" enctype="multipart/form-data">
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                     <input type="text" id="email" placeholder="Enter your email here..." style="color:black">
                    
                     <input id="message" placeholder="Give your feedback here..." style="color:black">
@@ -90,17 +112,11 @@ input{
                  
 
                     <div class="upload">
-                <button type="submit" name="uploadfeedback">
+                <button type="submit" name="submit">
                         submit
                 </button>
              </form>
                     </div>
-
-
-
-
-
-
 </body>
 </html>
 
@@ -109,27 +125,4 @@ input{
 
 
 
-<?php
-require 'connection.php';
 
-$sql = "SELECT id, email, message FROM feedback";
-$result = $con->query($sql);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-{
-   
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-
-    $sql = "INSERT INTO feedback (email,message) VALUES ('$email','$message')";
-    if ($con->query($sql) === TRUE)
-    {
-        echo "New feedback added successfully";
-    }
-    else
-    {
-        echo "Error: " . $sql . "<br>" . mysqli_error($con);
-    }
-    mysqli_close($con);
-}
-?>
