@@ -6,7 +6,7 @@ if(isset($_POST['email']) && isset($_POST['message'])) {
     // Both 'email' and 'message' keys are set in the $_POST array
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $sql = "INSERT INTO feedback (email,message) VALUES ('$email','$message')";
+    $sql = "INSERT INTO `feedback` (email,message) VALUES ('$email','$message')";
 
     if ($con->query($sql) === TRUE)
     {
@@ -19,6 +19,8 @@ if(isset($_POST['email']) && isset($_POST['message'])) {
     mysqli_close($con);
 }
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -160,9 +162,9 @@ float: right;
 
 
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
-                    <input type="text" id="email" placeholder="Enter your email here..." style="color:black">
+                    <input type="text" name="email" placeholder="Enter your email here..." style="color:black">
                    
-                    <input id="message" placeholder="Give your feedback here..." style="color:black">
+                    <input name="message" placeholder="Give your feedback here..." style="color:black">
                  
                  
 
