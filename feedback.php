@@ -10,7 +10,7 @@ if(isset($_POST['email']) && isset($_POST['message'])) {
 
     if ($con->query($sql) === TRUE)
     {
-        echo "New feedback added successfully";
+        echo "<p style='color:orange; font-family:tohoma; padding;10px; margin-left:5px;'>New feedback added successfully!</p>";
     }
     else
     {
