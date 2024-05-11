@@ -58,7 +58,7 @@ if(isset($_POST['email']) && isset($_POST['message'])) {
   
   .upload button:hover {
     background-color: transparent;
-    border:1px solid orange;
+    border:2px solid orange;
   }
   
 
@@ -67,7 +67,7 @@ if(isset($_POST['email']) && isset($_POST['message'])) {
         height: 200px;
         width: 500px;
         position: absolute;
-        margin-top: 100px; 
+        margin-top: 70px; 
          margin-left: 100px;
   }
   button{
@@ -94,6 +94,48 @@ input{
 }
 
 
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+  border:0;
+}
+
+.rating:not(:checked) > label {
+float: right;
+ position: relative;
+ top: 25px;
+ right:190px;
+  cursor: pointer;
+  font-size: 25px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -101,7 +143,20 @@ input{
     <div class="logo" style="padding:5px;">
            <a href="accountAfterLogin.php"> <img src="images/logo.png" ></a>
            <p style="color:orange; font-size:26px; font-family:tohoma; margin-left:150px;  ">Feedback for MITRA</p>
-           <p style="color:black; font-size:14px; margin-left:130px;">Thank you for giving us feedback!</p>
+           <p style="color:black; font-size:14px; margin-left:130px;">Thank you for giving us feedback!</p><br>
+
+                        <div class="rating">
+                <input value="5" name="rate" id="star5" type="radio">
+                <label title="text" for="star5"></label>
+                <input value="4" name="rate" id="star4" type="radio">
+                <label title="text" for="star4"></label>
+                <input value="3" name="rate" id="star3" type="radio" checked="">
+                <label title="text" for="star3"></label>
+                <input value="2" name="rate" id="star2" type="radio">
+                <label title="text" for="star2"></label>
+                <input value="1" name="rate" id="star1" type="radio">
+                <label title="text" for="star1"></label>
+                </div>
 
 
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
